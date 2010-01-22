@@ -2,9 +2,15 @@
 fRemote: iPhone to Firefox Remote - Public Prototype Release
 ------------------------------------------------------------
 
-The iPhone remote for Firefox, code named fRemote, is a prototype iPhone based remote control for the Firefox browser. The remote works by having a Firefox Add-On and Safari on the iPhone open a non-blocking connection to a Tornado server. Then the two communicate back and forth, as if they were chatting, but sending Javascript commands and responses that make Firefox do different things. 
+The iPhone remote for Firefox, code named fRemote, is a prototype iPhone based remote control 
+for the Firefox browser. The remote works by having a Firefox Add-On and Safari on the iPhone 
+open a non-blocking connection to a Tornado server. Then the two communicate back and forth, 
+as if they were chatting, but sending Javascript commands and responses that make Firefox do 
+different things. 
 
-The goal of this project is to create an interface to "elements" on a webpage using a remote control. Remotes are easily created and shared among the community, and can be single or multi-session.
+The goal of this project is to create an interface to "elements" on a webpage using a remote 
+control. Remotes are easily created and shared among the community, and can be single or 
+multi-session.
 
 
 
@@ -12,7 +18,7 @@ The goal of this project is to create an interface to "elements" on a webpage us
 Video Demo
 ------------------------------------------------------------
 
-http://vimeo.com/8230873
+   • http://vimeo.com/8230873
 
 
 
@@ -20,11 +26,15 @@ http://vimeo.com/8230873
 Public Prototype Release
 ------------------------------------------------------------
 
-You can download the code and run this yourself but please be aware that this is just a prototype and needs a lot of work. 
+You can download the code and run this yourself but please be aware that this is just a 
+prototype and needs a lot of work. 
 
-In many cases, you will want to check the code to see what is going on in the various remotes. For example, custom data is hardcoded - the Google Docs remote points to two of my test presentations. 
+In many cases, you will want to check the code to see what is going on in the various 
+remotes. For example, custom data is hardcoded - the Google Docs remote points to two of 
+my test presentations. 
 
-If you are not a developer, this project is not at a stage that would be beneficial to you. You should have knowledge of Javascript and Python if you intend to contribute or hack this.
+If you are not a developer, this project is not at a stage that would be beneficial to you. 
+You should have knowledge of Javascript and Python if you intend to contribute or hack this.
 
 
 
@@ -32,28 +42,50 @@ If you are not a developer, this project is not at a stage that would be benefic
 Installing
 ------------------------------------------------------------
 
-First, get the Tornado server up and running on your computer. You can find out more about that at http://www.tornadoweb.org/documentation
+First, get the Tornado server up and running on your computer. You can find out more about 
+that at:
+
+   • http://www.tornadoweb.org/documentation
 
 Now that you have that running, make sure the chat demo that comes with it works for you!
 
-Ok, good, now download the fRemote code at: http://github.com/dascgo/fremote/
+Ok, good, now download the fRemote code at: 
+
+   • http://github.com/dascgo/fremote/
 
 You have a directory with the following sub-directories:
 
-	•	server (this is the Tornado app we will be running)
-	•	add-on (this is the Firefox Add-On)
+   • server (this is the Tornado app we will be running)
+   • add-on (this is the Firefox Add-On)
 
-We won't be building an XPI file for the Add-On, rather, we'll just point Firefox to it to remove the hassle of rebuilding the XPI for every change. To do this, create a text file called fremote@dascgo.com with the content of the file being the location of the "add-on" directory. For instance, on my Mac, the content of the file is: /Users/daniel/webapps/fremote/add-on/.
+We won't be building an XPI file for the Add-On, rather, we'll just point Firefox to it to 
+remove the hassle of rebuilding the XPI for every change. To do this, create a text file 
+called fremote@dascgo.com with the content of the file being the location of the "add-on" 
+directory. For instance, on my Mac, the content of the file is: 
 
-Now, move this file to the Firefox extensions directory. For instance, mine is located at /Library/Application Support/Mozilla/Extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}. Details about this (and how to do on other OSes) can be found here http://www.borngeek.com/firefox/toolbar-tutorial/chapter-4/ (scroll down to "How to Develop Dynamically")
+   • /Users/daniel/webapps/fremote/add-on/.
 
-Quit Firefox if it is open but do not relaunch it yet. It will fail if the server is not running (tries to connect and pull .js file from it). So, let's crank up the server.
+Now, move this file to the Firefox extensions directory. For instance, mine is located at:
 
-Move to the "server" directory in a terminal and start the server with the command: ./start.py
+   • /Library/Application Support/Mozilla/Extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}
 
-start.py is the server and is a modified version of the chat demo that comes with the Tornado server.
+Details about this (and how to do on other OSes) can be found here:
 
-Test that it is running by hitting http://localhost:8888/remote and you should see the app with the default controls. Good.
+   • http://www.borngeek.com/firefox/toolbar-tutorial/chapter-4/ (scroll down to "How to 
+     Develop Dynamically")
+
+Quit Firefox if it is open but do not relaunch it yet. It will fail if the server is not 
+running (tries to connect and pull .js file from it). So, let's crank up the server.
+
+Move to the "server" directory in a terminal and start the server with the command: 
+
+   • ./start.py
+
+start.py is the server and is a modified version of the chat demo that comes with the 
+Tornado server.
+
+Test that it is running by hitting http://localhost:8888/remote and you should see the app 
+with the default controls. Good.
 
 
 
@@ -64,20 +96,22 @@ Starting Up
 We should be able to start using the remote now. There are a couple of options for doing this.
 
 First:
-	•	Launch Firefox (to be controlled) 
+   • Launch Firefox (to be controlled) 
 
 Then:
-	•	Launch Safari (or another instance of Firefox) to point to the remote.
-	•	Use an iPhone simulator such as PhoneGap (http://phonegap.com/download) to point to the remote.
-	•	Actually use your iPhone by replacing localhost in the url with your computers IP Address.
+   • Launch Safari (or another instance of Firefox) to point to the remote.
+   • Use an iPhone simulator such as PhoneGap (http://phonegap.com/download) to point to the 
+     remote.
+   • Actually use your iPhone by replacing localhost in the url with your computers IP 
+     Address.
 
 Which ever you use, point the browser you want to use for your remote to:
 
-	•	http://localhost:8888/remote
+   • http://localhost:8888/remote
 
 Now, in Firefox, turn on the Add-On by going to: 
 
-	•	Tools > fRemote. 
+   • Tools > fRemote. 
 
 A green bar should appear across the top of Firefox to let you know you are in remote mode.
 
@@ -87,11 +121,16 @@ A green bar should appear across the top of Firefox to let you know you are in r
 Using
 ------------------------------------------------------------
 
-Let's test it. The first Remote listed should be Presentation Viewer. Click on that and you should see a list of two presentations: "pres1" and "pres2".
+Let's test it. The first Remote listed should be Presentation Viewer. Click on that and you 
+should see a list of two presentations: "pres1" and "pres2".
 
-Click on one of them and Firefox should redirect to the presentation (the presentations are nothing fancy, just examples). Once Firefox loads the page, the remote should change from a list of presentations to controls for the currently selected presentation, which consists of a Next/Back/End button. Try them out and see if the presentation advances.
+Click on one of them and Firefox should redirect to the presentation (the presentations are 
+nothing fancy, just examples). Once Firefox loads the page, the remote should change from a 
+list of presentations to controls for the currently selected presentation, which consists of 
+a Next/Back/End button. Try them out and see if the presentation advances.
 
-You can play with the other remotes to get a feel of what they do. I run through each of them in the video above if you need a reference.
+You can play with the other remotes to get a feel of what they do. I run through each of 
+them in the video above if you need a reference.
 
 
 
@@ -101,14 +140,17 @@ Create a New Remote
 
 Adding a new remote, in this prototype, is just a matter of a few steps:
 
-	•	Remote's are JS files, currently stored at /path/to/server/static/dsg_*.js
-		⁃	The "dsg" prefix is just my initials, denoting remotes i've created.
-		⁃	Copy one of these and rename it to whatever you want to call it.
-	•	Open /path/to/server/templates/remote.html
-		⁃	In this file, look for: 
-		⁃	<script src="{{ static_url("jquery.js") }}" type="text/javascript"></script>
-		⁃	You will see the existing remotes called immediately after that. Add your newly created remote here.
-		⁃	There is a $(document).ready call on this page that will load the remotes when the page is ready. Inside that, you'll see an array of remotes being passed to tools.init. Add your remote id here (info.id - see next section).
+   • Remote's are JS files, currently stored at /path/to/server/static/dsg_*.js
+	    - The "dsg" prefix is just my initials, denoting remotes i've created.
+	    - Copy one of these and rename it to whatever you want to call it.
+   • Open /path/to/server/templates/remote.html
+	    - In this file, look for: 
+	    - <script src="{{ static_url("jquery.js") }}" type="text/javascript"></script>
+	    - You will see the existing remotes called immediately after that. Add your newly 
+	      created remote here.
+	    - There is a $(document).ready call on this page that will load the remotes when 
+	      the page is ready. Inside that, you'll see an array of remotes being passed to 
+	      tools.init. Add your remote id here (info.id - see next section).
 
 
 
@@ -137,7 +179,9 @@ info: {
     queueable:    true, 
 }
 
-The info block is metadata on your remote. The "name", "description" and "logo" is what is displayed on the list of remotes screen. "shareable" and "queueable" are options for later functionality.
+The info block is metadata on your remote. The "name", "description" and "logo" is what is 
+displayed on the list of remotes screen. "shareable" and "queueable" are options for later 
+functionality.
 
 The Buttons Block:
 
@@ -157,12 +201,20 @@ buttons: {
     }
 }
 
-The buttons block will contain all the buttons in your remote, regardless of screen. The formatting for buttons are all generally the same. The label helps to define what button type and how it's labeled (more on this in a second). The style will place the button in that location on the screen. Buttons can have mouseup and mousedown blocks that contain an action and response handlers. This action function is what is called in either of those states. The responses block for that state will be called once the Add-On in Firefox is finished with the command it was just sent. 
+The buttons block will contain all the buttons in your remote, regardless of screen. The 
+formatting for buttons are all generally the same. The label helps to define what button 
+type and how it's labeled (more on this in a second). The style will place the button in 
+that location on the screen. Buttons can have mouseup and mousedown blocks that contain 
+an action and response handlers. This action function is what is called in either of those 
+states. The responses block for that state will be called once the Add-On in Firefox is 
+finished with the command it was just sent. 
 
 An example of how a buttons mouseevent and response works is as follows:
-	•	a remote has a mousedown action that will tell Firefox to go to a certain webpage
-	•	once that page has finished loading, Firefox will send back that the action has been completed and call the "success" response for that button's mousedown
-	•	In the success function, you might tell the remote to draw a new screen of buttons that relate to the loaded page.
+   • a remote has a mousedown action that will tell Firefox to go to a certain webpage
+   • once that page has finished loading, Firefox will send back that the action has been 
+     completed and call the "success" response for that button's mousedown
+   • In the success function, you might tell the remote to draw a new screen of buttons 
+     that relate to the loaded page.
 
 The Screens Block:
 
@@ -171,7 +223,10 @@ screens: {
     presentation: ["next", "previous", "end"]
 }
 
-A remote can have multiple screens, which is just a collection of buttons. In the above example, there are two screens. Each item in the screen arrays refer to buttons. So on the home screen, there is a single button called "presentations" (which will refer to the remote.buttons.presentations button). The "presentation" screen contains 3 buttons.
+A remote can have multiple screens, which is just a collection of buttons. In the above 
+example, there are two screens. Each item in the screen arrays refer to buttons. So on the 
+home screen, there is a single button called "presentations" (which will refer to the 
+remote.buttons.presentations button). The "presentation" screen contains 3 buttons.
 
 The Init Block:
 
@@ -180,7 +235,10 @@ init: function(){
     tools.draw_screen("home");
 }
 
-The init will start up your remote. All remotes will need to call tools.setup_remote(); but you can also do any other setup steps here. In the above example, the only thing we want to do is draw the initial screen of "home", which, shown above, will draw the one button "presentations" to the screen.
+The init will start up your remote. All remotes will need to call tools.setup_remote(); but 
+you can also do any other setup steps here. In the above example, the only thing we want to 
+do is draw the initial screen of "home", which, shown above, will draw the one button 
+"presentations" to the screen.
 
 
 
@@ -189,22 +247,33 @@ Different Types of Buttons:
 ------------------------------------------------------------
 
 Right now, there are three types of buttons:
-	•	A normal button with a label.
-	•	An "input button" that takes input from a user (the url field in the Go To URL Remote).
-	•	A "list" button to create a list of clickable items (The list of presentations in the Presentation Remote). 
+   • A normal button with a label.
+   • An "input button" that takes input from a user (the url field in the Go To URL Remote).
+   • A "list" button to create a list of clickable items (The list of presentations in the 
+     Presentation Remote). 
 
-To identify what type of button you want to create is determined by what you set as the label. In the above example for the "next" button, the label is a non-empty string (label: "next"). The engine will take a non-empty string and know that is should create a normal button with a label in it (the string).
+To identify what type of button you want to create is determined by what you set as the 
+label. In the above example for the "next" button, the label is a non-empty string (label: 
+"next"). The engine will take a non-empty string and know that is should create a normal 
+button with a label in it (the string).
 
-If the label is an empty string, it will know to draw a user input button. Such as the button for entering a URL in the remote that jumps you to different urls.
+If the label is an empty string, it will know to draw a user input button. Such as the 
+button for entering a URL in the remote that jumps you to different urls.
 
-If the label is an array then it will draw a list, such as the list of presentations in the Presentation remote. This actually needs to be an array or arrays. Example:
+If the label is an array then it will draw a list, such as the list of presentations in 
+the Presentation remote. This actually needs to be an array or arrays. Example:
 
 label: [
     ["pres1", "http://docs.google.com/present/view?id=dfzbxv77_12dpcdh2dc"],
     ["pres2", "http://docs.google.com/present/view?id=dfzbxv77_12424mt9gk"]
 ],
 
-This will create a scrollable list with two items in it. The first item will have a label of "pres1" and when you click it, the url  "http://docs.google.com/present/view?id=dfzbxv77_12dpcdh2dc" will be passed to the mouseup/down function for that button.
+This will create a scrollable list with two items in it. The first item will have a label 
+of "pres1" and when you click it, the url:
+
+   • "http://docs.google.com/present/view?id=dfzbxv77_12dpcdh2dc" 
+	
+will be passed to the mouseup/down function for that button.
 
 
 
@@ -212,25 +281,41 @@ This will create a scrollable list with two items in it. The first item will hav
 Helpers in the Add-On
 ------------------------------------------------------------
 
-Helpers for the Remote (ways to interact with the HTML loaded in Firefox) are located in /path/to/add-on/chrome/content/application.js under fremote.commands.[name_of_command](params). All commands take one param which some split on a pipe character ("|").
+Helpers for the Remote (ways to interact with the HTML loaded in Firefox) are located in: 
 
-	•	redirect(param): Will redirect the browser to a passed url
-	•	trigger(param): Will trigger a mouse or keyboard event, depending on what is passed in. The param is split on | to generate up to 4 options:
-		⁃	[0] The selector to find an element on the page to trigger an event on
-		⁃	[1] The kind of event this is: MouseEvents or KeyboardEvent
-		⁃	[2] The type of event this is: mousedown/mouseup, keydown/keyup 
-		⁃	[3] (optional) if keyboard event, this the the keycode to to trigger on.
-	•	flash(param): This is how to send commands to a flash file (such as in the Grooveshark remote). Params are split into two items:
-		⁃	[0] id of the flash file
-		⁃	[1] command to send the flash file
-		⁃	Calling this, for example, would be tools.flash("gsliteswf","togglePlayback"); which would find the flash with id "gsliteswf" and send it the command "togglePlayback" (which in Grooveshark, toggles the pause/play button)
-	•	collect(param): Param is a selector that will be used to select a group of dom objects. Then, the page as a whole would be grayed out and the first item of this collection will be highlighted (as seen in the Google search remote).
-	•	collect_next()/collect_prev(): will jump forward/back to the next item in the collection you gathered with the collect command.
-	•	fullscreen(param): Param will be a selector that will be used to grab an element and make it take over the whole page (used in the demo to make the flash game fullscreen)
+   • /path/to/add-on/chrome/content/application.js 
+	
+under fremote.commands.[name_of_command](params). All commands take one param which some 
+split on a pipe character ("|").
 
-When you call these commands in the JS for the remote, you do not need to combine all params into a single string at that time. When passed from the remote to the Add-On, the params will be joined with a pipe character separating them.
+   • redirect(param): Will redirect the browser to a passed url
+   • trigger(param): Will trigger a mouse or keyboard event, depending on what is passed in. 
+     The param is split on | to generate up to 4 options:
+	    - [0] The selector to find an element on the page to trigger an event on
+	    - [1] The kind of event this is: MouseEvents or KeyboardEvent
+	    - [2] The type of event this is: mousedown/mouseup, keydown/keyup 
+	    - [3] (optional) if keyboard event, this the the keycode to to trigger on.
+   • flash(param): This is how to send commands to a flash file (such as in the Grooveshark 
+     remote). Params are split into two items:
+	    - [0] id of the flash file
+	    - [1] command to send the flash file
+	    - Calling this, for example, would be tools.flash("gsliteswf","togglePlayback"); which 
+	      would find the flash with id "gsliteswf" and send it the command "togglePlayback" 
+	      (which in Grooveshark, toggles the pause/play button)
+   • collect(param): Param is a selector that will be used to select a group of dom objects. 
+     Then, the page as a whole would be grayed out and the first item of this collection will 
+     be highlighted (as seen in the Google search remote).
+   • collect_next()/collect_prev(): will jump forward/back to the next item in the collection 
+     you gathered with the collect command.
+   • fullscreen(param): Param will be a selector that will be used to grab an element and make 
+     it take over the whole page (used in the demo to make the flash game fullscreen)
 
-The Add-On should contain core functionality, but remote creators can inject their own helpers if needed, mentioned in the "overall goals" section below.
+When you call these commands in the JS for the remote, you do not need to combine all 
+params into a single string at that time. When passed from the remote to the Add-On, the 
+params will be joined with a pipe character separating them.
+
+The Add-On should contain core functionality, but remote creators can inject their own 
+helpers if needed, mentioned in the "overall goals" section below.
 
 
 
@@ -238,29 +323,49 @@ The Add-On should contain core functionality, but remote creators can inject the
 Long Term Goals
 ------------------------------------------------------------
 
-Now that you are running the demo, you might want to start submitting additions to the code. That would be awesome, but I would like to throw out my ideas on what I want to accomplish with this project. By no means is this roadmap set in stone, it's just the initial direction I am pointed.
+Now that you are running the demo, you might want to start submitting additions to the 
+code. That would be awesome, but I would like to throw out my ideas on what I want to 
+accomplish with this project. By no means is this roadmap set in stone, it's just the 
+initial direction I am pointed.
 
 Signup:
 
-	•	There is a web site where a user goes, registers an account.
-	•	Once registered:
-	⁃	The user will be given a url to point their iPhone to. This page will request a log in and once in, will show the user remotes they have installed.
-	⁃	The user will be given the Firefox Add-On to install. On first run of the Add-On, it will require the user to log in.
-	•	Now, the Add-On and iPhone are associated to a particular user (this is important so commands know who to go to).
-	•	From the remote, the user can search for remotes to install, such as the Presentation remote.
-	•	Remotes can accept data for a person and have a limited database schema to store this data.
-	•	The Presentation remote needs to know the user's presentations, so they can add them either through the iPhone remote interface, or at the website where they registered (you can manage your remotes there if needed).
-	•	I add some presentations and refresh my remote and find that they are there and can use them.
+   • There is a web site where a user goes, registers an account.
+   • Once registered:
+    - The user will be given a url to point their iPhone to. This page will request a log in and 
+      once in, will show the user remotes they have installed.
+    - The user will be given the Firefox Add-On to install. On first run of the Add-On, it will 
+      require the user to log in.
+   • Now, the Add-On and iPhone are associated to a particular user (this is important so 
+     commands know who to go to).
+   • From the remote, the user can search for remotes to install, such as the Presentation 
+     remote.
+   • Remotes can accept data for a person and have a limited database schema to store this data.
+   • The Presentation remote needs to know the user's presentations, so they can add them either 
+     through the iPhone remote interface, or at the website where they registered (you can manage 
+     your remotes there if needed).
+   • I add some presentations and refresh my remote and find that they are there and can use them.
 
 That describes general use of the service. In a nutshell, here's how remotes are created:
 
-	•	The web site will have a remote builder interface so that anyone with an account can create remotes.
-	•	The interface allows "Screens" of "Buttons" to be build with drag/drop functionality to easily create a remote.
-	•	After you add a button to a screen, you can set the actions that happen on that button.
-	•	The Add-On comes with built in helpers like collecting elements (seen in the Google search demo), but remote creators can also script additional functionality that the browser will import when it see the user has selected a remote that needs it.
-	•	Once a remote it built, it can be published (with versioning). Published remotes are available to all users to install to their account (unpublished just to the creator, for testing or strictly personal use).
+   • The web site will have a remote builder interface so that anyone with an account can create 
+     remotes.
+   • The interface allows "Screens" of "Buttons" to be build with drag/drop functionality to 
+     easily create a remote.
+   • After you add a button to a screen, you can set the actions that happen on that button.
+   • The Add-On comes with built in helpers like collecting elements (seen in the Google search 
+     demo), but remote creators can also script additional functionality that the browser will 
+     import when it see the user has selected a remote that needs it.
+   • Once a remote it built, it can be published (with versioning). Published remotes are available 
+     to all users to install to their account (unpublished just to the creator, for testing or 
+     strictly personal use).
 
-Now, sharing. Examples like the Presentation and Books remote would be perfect to share. Imagine someone giving a presentation and people in the back of the room can not see the slideshow. The presenter can turn on "sharing" in a remote, then, anyone wanting to follow along, can "subscribe" to that username in the Firefox Add-On. So as the presenter advances through the slide show in his browser, anyone that is subscribed with see their browsers taking commands directly from the presenter.
+Now, sharing. Examples like the Presentation and Books remote would be perfect to share. 
+Imagine someone giving a presentation and people in the back of the room can not see the 
+slideshow. The presenter can turn on "sharing" in a remote, then, anyone wanting to follow 
+along, can "subscribe" to that username in the Firefox Add-On. So as the presenter advances
+through the slide show in his browser, anyone that is subscribed with see their browsers 
+taking commands directly from the presenter.
 
 That being said, what are you ideas?
 
@@ -270,13 +375,17 @@ That being said, what are you ideas?
 Known Issues
 ------------------------------------------------------------
 
-This is a prototype. Hastily written and without long term goals considered. It either needs massive re-factoring or a rewrite. Here are some known issues:
+This is a prototype. Hastily written and without long term goals considered. It either 
+needs massive re-factoring or a rewrite. Here are some known issues:
 
-	•	Sometimes the server and add-on get tripped up and Firefox and the server should be restarted.
-	•	Sometimes the selectors seem to fail.
-	•	Sometimes the response from the Add-On back to the Remote does not work.
-	•	Various things are logged to the Firefox Error console so you may want to watch that (or use fremote.tools.logger("message here") to log your own information).
-	•	The Add-On creates a green bar at the top of the browser with what looks like buttons and a search field. None of these items are active except the close button.
+   • Sometimes the server and add-on get tripped up and Firefox and the server should be 
+     restarted.
+   • Sometimes the selectors seem to fail.
+   • Sometimes the response from the Add-On back to the Remote does not work.
+   • Various things are logged to the Firefox Error console so you may want to watch that 
+     (or use fremote.tools.logger("message here") to log your own information).
+   • The Add-On creates a green bar at the top of the browser with what looks like buttons 
+     and a search field. None of these items are active except the close button.
 
 
 
@@ -284,10 +393,14 @@ This is a prototype. Hastily written and without long term goals considered. It 
 Other Ideas
 ------------------------------------------------------------
 
-	•	Have a button in the browser that will trigger recording and it will playback things u do. Like in google reader, I can record the 'k' button the first time I switch to a different article. The just sit back and do it from my phone. Easy way to create a remote
-	•	HTML5 video... try to find a site that has free videos that can be used in html5 and then control it from the remote. find movies from the remote too.
-	•	Hook into the microphone and let people speak what they want to do?
-	•	Would like to see a "mouse" button-type that maybe draws a little "joystick" button on the screen and how you move your finger over it, it will move the mouse in the browser.
+   • Have a button in the browser that will trigger recording and it will playback things 
+     you do. Like in google reader, I can record the 'k' button the first time I switch to a 
+     different article. The just sit back and do it from my phone. Easy way to create a remote
+   • HTML5 video... try to find a site that has free videos that can be used in html5 and then 
+     control it from the remote. find movies from the remote too.
+   • Hook into the microphone and let people speak what they want to do?
+   • Would like to see a "mouse" button-type that maybe draws a little "joystick" button on 
+     the screen and how you move your finger over it, it will move the mouse in the browser.
 
 
 
