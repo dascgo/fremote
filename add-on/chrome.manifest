@@ -1,0 +1,3 @@
+content fremote chrome/content/
+overlay chrome://browser/content/browser.xul chrome://fremote/content/fremote.xul
+skin fremote classic/1.0 chrome/skin/

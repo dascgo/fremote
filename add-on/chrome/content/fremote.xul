@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://fremote/skin/fremote.css" type="text/css"?>
+
+<overlay id="fremote-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  
+  <script type="application/x-javascript" src="chrome://fremote/content/application.js"></script>
+  <script type="text/javascript" src="http://localhost:8888/static/jquery.js"></script>
+  
+  <menupopup id="menu_ToolsPopup">
+      <menuitem insertafter="devToolsSeparator" label="fRemote" oncommand="fremote.startup.init();" />
+  </menupopup>
+   
+  <toolbox id="navigator-toolbox">
+    
+    <toolbar name="fRemote" id="fremote-toolbar" class="fremote-menu-bar" context="toolbar-context-menu" hidden="true">
+      
+      <hbox flex="1">
+        
+        <image id="fremote-logo" />
+        
+        <textbox 
+          value="follow..." 
+          class="fremote-input-follow" 
+          style=""
+        />
+        
+        <image class="fremote-btn-search" onclick="alert('not yet implemented')" />
+        <spacer flex="1"/>
+        <label value="Hi, dascgo!" id="fremote-user" />
+        <image class="fremote-btn-logout" onclick="alert('not yet implemented')" />
+        <image class="fremote-btn-close" onclick="fremote.startup.turn_off()" />
+        
+      </hbox>
+      
+    </toolbar>
+  
+  </toolbox>
+
+</overlay>

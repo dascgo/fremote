@@ -1,0 +1,56 @@
+toolbar.fremote-menu-bar{
+    width: 100%;
+}
+
+toolbar.fremote-menu-bar hbox{
+    background: #82861a url("chrome://fremote/skin/menu_bg.png") top left repeat-x;
+}
+
+toolbar.fremote-menu-bar hbox #fremote-logo {
+    margin: 0 5px;
+    width: 32px;
+    height: 32px;
+    list-style-image: url("chrome://fremote/skin/fr_logo.png");  
+}
+
+toolbar.fremote-menu-bar hbox #fremote-user {
+    padding-top: 8px;
+    color: white;
+    font-weight: bold;
+}
+
+textbox.fremote-input-follow{
+    -moz-appearance: none;
+    min-width: 90px;
+    min-height: 25px;
+    color: white;
+    border: 0;
+    padding: 6px 0 0 2px;
+    margin: 4px 4px 4px 0;
+    background: url("chrome://fremote/skin/input_search.png") top left no-repeat;
+    background-color: transparent;
+}
+
+image.fremote-btn-close{
+    cursor: pointer;
+    margin: 4px 4px 4px 0;
+    min-width: 27px;
+    min-height: 25px;
+    background: url("chrome://fremote/skin/btn_close.png") top left no-repeat;
+}
+
+image.fremote-btn-search{
+    cursor: pointer;
+    margin: 4px 4px 4px 0;
+    min-width: 27px;
+    min-height: 25px;
+    background: url("chrome://fremote/skin/btn_search.png") top left no-repeat;
+}
+
+image.fremote-btn-logout{
+    cursor: pointer;
+    margin: 4px 4px 4px 0;
+    min-width: 54px;
+    min-height: 25px;
+    background: url("chrome://fremote/skin/btn_logout.png") top left no-repeat;
+}
